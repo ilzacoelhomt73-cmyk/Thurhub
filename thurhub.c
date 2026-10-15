@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,12 +7,13 @@
 
 #define HASH_ESPERADO "3669e7add5d311474d0dd3c6e6020163d99c610af9519ad0194158e96d1f7f10"
 
+char comando[100];
 int executou = 0;
 int escolha = 0;
 int sistema = 0;
 int numero = 0;
 int primeira_vez = 1;
- 
+int escolha_de_jogo = 0;
 
 
 
@@ -30,6 +30,8 @@ void mostrar_banner(void) {
 
 void mostrar_jogo(const char *jogo, const char *link) {
 
+
+
     
 if (primeira_vez) {
     mostrar_banner();
@@ -39,6 +41,8 @@ if (primeira_vez) {
  
 
 printf("\033[1;36m%d - %s \033[0m(\033[1;32m%s\033[0m)\n", ++numero, jogo, link);
+
+
 }
 
 void instalar_para_debian(const char *ferramenta) {
@@ -67,6 +71,8 @@ else if (strcmp(ferramenta, "zphisher") == 0) {
     );
   }
 
+
+
 else if (strcmp(ferramenta, "jogos") == 0) {
     system("clear");
 
@@ -77,15 +83,33 @@ else if (strcmp(ferramenta, "jogos") == 0) {
     mostrar_jogo("Gta vice city", "https://quenq.com/apps/vice-city/");
     mostrar_jogo("Gta 3", "https://quenq.com/apps/iii-online/");
     mostrar_jogo("Veck.io", "https://zapgames.io/veck-io");
-    printf("\nPressione enter para voltar...\n");
-    getchar();
-    getchar();
+    printf("\n\033[1;37mdigite sua escolha: \033[0m");
+    scanf("%d", &escolha_de_jogo);
+
+    switch (escolha_de_jogo) {
+        case 1:
+            system("xdg-open https://quenq.com/apps/minecraft/");
+            break;        
+        case 2:
+            system("xdg-open https://quenq.com/apps/vice-city/");
+            break;
+        case 3:
+            system("xdg-open https://quenq.com/apps/iii-online/");
+            break;
+        case 4:
+            system("xdg-open https://zapgames.io/veck-io");
+            break;        
+
+        default:
+            printf("jogo invalido\n");
+
 
 }
 
 
 }
 
+}
 
 
 void instalar_para_termux(const char *ferramenta) {
@@ -118,21 +142,42 @@ else if (strcmp(ferramenta, "jogos") == 0) {
     system("clear");
     
     numero = 0;
-    
-    primeira_vez = 1;
-
+    primeira_vez = 1; 
+  
     mostrar_jogo("minecraft", "https://quenq.com/apps/minecraft/");
     mostrar_jogo("Gta vice city", "https://quenq.com/apps/vice-city/");
     mostrar_jogo("Gta 3", "https://quenq.com/apps/iii-online/");
     mostrar_jogo("Veck.io", "https://zapgames.io/veck-io");
-    printf("\nPressione enter para voltar...\n");
-    getchar();
-    getchar();
+    printf("\n\033[1;37mdigite sua escolha: \033[0m");
+    scanf("%d", &escolha_de_jogo);
+
+    switch (escolha_de_jogo) {
+        case 1:
+            printf("%d\n", system("xdg-open https://quenq.com/apps/minecraft/"));
+            break;        
+        case 2:
+            system("xdg-open https://quenq.com/apps/vice-city/");
+            break;
+        case 3:
+            system("xdg-open https://quenq.com/apps/iii-online/");
+            break;
+        case 4:
+            system("xdg-open https://zapgames.io/veck-io");
+            break;        
+
+        default:
+            printf("jogo invalido\n");
+
+
+
+
+    }
+}
+
 }
 
 
 
-}
 
 
 void executar_opcao(const char *tool) {
@@ -148,7 +193,6 @@ void menu(void) {
         system("clear");
         mostrar_banner();
 
-        printf("\033[1;35m0.1.0\033[0m\n\n");
         printf("\033[1;33m1 - hack para kahoot\033[0m\n");
         printf("\033[1;33m2 - zphisher\033[0m\n");
         printf("\033[1;33m3 - jogos\033[0m\n");
@@ -195,9 +239,8 @@ int main(void) {
     while (tentativas > 0) {
         system("clear");
         mostrar_banner();
-
-        printf("\033[1;35m0.1.0\033[0m\n\n");
-        printf("Digite a senha: ");
+        
+        printf("\033[1;37mdigite a senha: \033[0m");
         fflush(stdout);
 
         int eco_desativado =
@@ -259,10 +302,9 @@ int main(void) {
     system("clear");
     mostrar_banner();
 
-    printf("\033[1;35m0.1.0\033[0m\n\n");
     printf("\033[33m1 - Termux\033[0m\n");
     printf("\033[33m2 - Debian\033[0m\n");
-    printf("\nEscolha o sistema: ");
+    printf("\n\033[1;37mEscolha o sistema: \033[0m");
     fflush(stdout);
 
     if (scanf("%d", &sistema) != 1 ||
