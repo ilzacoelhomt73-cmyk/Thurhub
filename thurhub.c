@@ -76,6 +76,7 @@ else if (strcmp(ferramenta, "jogos") == 0) {
     mostrar_jogo("minecraft", "https://quenq.com/apps/minecraft/");
     mostrar_jogo("Gta vice city", "https://quenq.com/apps/vice-city/");
     mostrar_jogo("Gta 3", "https://quenq.com/apps/iii-online/");
+    mostrar_jogo("Veck.io", "https://zapgames.io/veck-io");
     printf("\nPressione enter para voltar...\n");
     getchar();
     getchar();
@@ -123,6 +124,7 @@ else if (strcmp(ferramenta, "jogos") == 0) {
     mostrar_jogo("minecraft", "https://quenq.com/apps/minecraft/");
     mostrar_jogo("Gta vice city", "https://quenq.com/apps/vice-city/");
     mostrar_jogo("Gta 3", "https://quenq.com/apps/iii-online/");
+    mostrar_jogo("Veck.io", "https://zapgames.io/veck-io");
     printf("\nPressione enter para voltar...\n");
     getchar();
     getchar();
